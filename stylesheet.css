@@ -46,63 +46,108 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-header {
-    background: linear-gradient(-1.15deg ,#FFF 25%, #f69677 70%, #602ff1 90%);
-    padding-bottom: 120px;
-    overflow: hidden;
-}
-.navigation {
-    position: relative;
-    padding: 12px 60px 0;
-    background-color: #FFF;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-.navigation:after {
+.screen-reader-only {
     position: absolute;
-    content: "";
-    width: 0; 
-    height: 0; 
-    bottom: -40px;
-    left: 0;
-    border-left: 0 solid transparent;
-    border-right: 1920px solid transparent;
-    border-top: 40px solid #FFF;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px 1px 1px 1px); 
+    clip: rect(1px,1px,1px,1px);
+    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    overflow: hidden !important;
 }
-.menu {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    z-index: 8;
-    position: relative;
+.container {
+    padding: 15px;
 }
-.menu li {
-    background: #FFF;
-    padding: 4px 6px;
-    margin: 0 4px;
-    display: inline-block;
-
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    max-width: 730px;
+    margin: 0 auto;
 }
-.menu li:hover {
-    box-shadow: 0px 13px 11px -10px #a54ee2;
-}
-.menu li a {
-    text-decoration: none;
+header h1 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    line-height: 1.333;
     color: #585858;
 }
-h1 {
-    /* font-family: 'Annie Use Your Telescope', cursive; */
-    font-family: 'Permanent Marker', cursive;
-    font-size: 48px;     
-    color: #f47759;
-    /* text-shadow: 2px 2px 10px #f69677; */
-    animation: color-animation 60s infinite linear;
-    /* text-align: center; */
-    line-height: 1;
+header span {
+    opacity: 0.8;
+    animation: color-animation 10s infinite;
+    font-weight: 400
 }
-h1:hover {
-    animation: color-animation 6s infinite ease-in-out;
+header .racoon{
+    position: relative;
+}
+header .racoon:before {
+    content: "";
+    border-radius: 30px;
+    animation: shadow-animation 10s infinite;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    position: relative;
+    vertical-align: middle;
+}
+header .racoon img {
+    max-width: 38px;
+    position: absolute;
+    top: -2px;
+    left: -4px;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    padding: 60px 30px;
+}
+.social-link {
+    width: 60px;
+    margin-right: 30px;
+}
+.social-link svg path {
+    transition: 0.2s fill ease-in-out;
+}
+.social-link.github:hover svg path {
+    fill: #181717;
+    transition: 0.2s fill ease-in-out;
+}
+.social-link.twitter:hover svg path {
+    fill: #1DA1F2;
+    transition: 0.2s fill ease-in-out;
+}
+.social-link.linkedin:hover svg path {
+    fill: #0077B5;
+    transition: 0.2s fill ease-in-out;
+}
+footer{
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    text-align: center;
+    color: rgba(88,88,88,0.6);
+}
+@media(min-width: 760px){
+    header .racoon:before { 
+        margin-right: 14px;
+    }
+    header .racoon img {
+        top: 22px;
+        max-width: 40px;
+    }
+    header h1 {
+        font-size: 58px;
+    }
+    .social-links {
+        display: flex;
+        justify-content: center;
+        padding: 60px;
+    }
+    .social-link {
+        width: 60px;
+        margin-right: 40px;
+    }
 }
 
 @keyframes color-animation {
@@ -127,24 +172,24 @@ h1:hover {
     100% {  color: #f69677;    }
 }
 @keyframes shadow-animation {
-    0% {    text-shadow: 2px 2px 10px #f69677;    }
-    5% {    text-shadow: 2px 2px 10px #f69677;    } 
-    10% {   text-shadow: 2px 2px 10px #f26a71;    } 
-    15% {   text-shadow: 2px 2px 10px #ef4f92;    } 
-    20% {   text-shadow: 2px 2px 10px #a54ee2;    } 
-    25% {   text-shadow: 2px 2px 10px #a341e2;    }
-    30% {   text-shadow: 2px 2px 10px #9737ee;    } 
-    35% {   text-shadow: 2px 2px 10px #602ff1;    } 
-    40% {   text-shadow: 2px 2px 10px #2617e9;    } 
-    45% {   text-shadow: 2px 2px 10px #0d07e6;    } 
-    50% {   text-shadow: 2px 2px 10px #0b03a9;    } 
-    55% {   text-shadow: 2px 2px 10px #0b03a9;    } 
-    60% {   text-shadow: 2px 2px 10px #0d07e6;    } 
-    65% {   text-shadow: 2px 2px 10px #a341e2;    }
-    70% {   text-shadow: 2px 2px 10px #a54ee2;    } 
-    85% {   text-shadow: 2px 2px 10px #ef4f92;    } 
-    90% {   text-shadow: 2px 2px 10px #f26a71;    } 
-    95% {   text-shadow: 2px 2px 10px #f69677;    }
-    100% {  text-shadow: 2px 2px 10px #f69677;    }
+    0% {    box-shadow: 2px 2px 26px #f69677;    }
+    5% {    box-shadow: 2px 2px 26px #f69677;    } 
+    10% {   box-shadow: 2px 2px 26px #f26a71;    } 
+    15% {   box-shadow: 2px 2px 26px #ef4f92;    } 
+    20% {   box-shadow: 2px 2px 26px #a54ee2;    } 
+    25% {   box-shadow: 2px 2px 26px #a341e2;    }
+    30% {   box-shadow: 2px 2px 26px #9737ee;    } 
+    35% {   box-shadow: 2px 2px 26px #602ff1;    } 
+    40% {   box-shadow: 2px 2px 26px #2617e9;    } 
+    45% {   box-shadow: 2px 2px 26px #0d07e6;    } 
+    50% {   box-shadow: 2px 2px 26px #0b03a9;    } 
+    55% {   box-shadow: 2px 2px 26px #0b03a9;    } 
+    60% {   box-shadow: 2px 2px 26px #0d07e6;    } 
+    65% {   box-shadow: 2px 2px 26px #a341e2;    }
+    70% {   box-shadow: 2px 2px 26px #a54ee2;    } 
+    85% {   box-shadow: 2px 2px 26px #ef4f92;    } 
+    90% {   box-shadow: 2px 2px 26px #f26a71;    } 
+    95% {   box-shadow: 2px 2px 26px #f69677;    }
+    100% {  box-shadow: 2px 2px 26px #f69677;    }
 }
  
