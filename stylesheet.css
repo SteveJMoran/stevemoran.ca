@@ -77,8 +77,8 @@ header h1 {
     color: #FFF;
 }
 header span {
-    opacity: 0.8;
-    animation: color-animation 10s infinite;
+    /* opacity: 0.8;
+    animation: color-animation 10s infinite; */
     font-weight: 400
 }
 header .racoon{
